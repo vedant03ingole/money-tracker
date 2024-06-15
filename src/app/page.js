@@ -15,6 +15,7 @@ export default async function Home() {
             <h1>{transaction.id}</h1>
           </div>
         ))}
+        <br />
       </div>
     </>
   );
