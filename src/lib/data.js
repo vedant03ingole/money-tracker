@@ -3,7 +3,7 @@ import { connectToDB } from './utils'
 
 export const fetchTransactions = async () => {
     try{
-        connectToDB()
+        await connectToDB()
         const transactions = await Transaction.find()
         return transactions
         

@@ -4,7 +4,6 @@ import { connectToDB } from "@/lib/utils";
 export default async function Home() {
 
   const transactions = await fetchTransactions()
-  connectToDB()
   
   return (
     <>
