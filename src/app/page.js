@@ -3,7 +3,7 @@ import { connectToDB } from "@/lib/utils";
 
 export default async function Home() {
 
-  // const transactions = await fetchTransactions()
+  const transactions = await fetchTransactions()
   await connectToDB()
   
   return (
