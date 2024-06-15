@@ -1,4 +1,4 @@
-// import { fetchTransactions } from '../lib/data' 
+import { fetchTransactions } from '../lib/data' 
 import { connectToDB } from "@/lib/utils";
 
 export default async function Home() {
@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <>
       <div>Hello world</div>
-      {/* <div>
+      <div>
         <h1>All Transactiosn</h1>
         {transactions.map((transaction) => (
           <div key={transaction.id}>
@@ -18,7 +18,7 @@ export default async function Home() {
           </div>
         ))}
         <br />
-      </div> */}
+      </div>
     </>
   );
 }
