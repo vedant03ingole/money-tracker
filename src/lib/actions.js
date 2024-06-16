@@ -12,6 +12,8 @@ export  const addTransaction = async (formData) => {
         connectToDB()
         console.log("connected")
 
+        
+
         const newTransaction = new Transaction({ username, transactionType, category, transactionAmount, paymentMethod, transactionDate, description })
         await newTransaction.save()
 

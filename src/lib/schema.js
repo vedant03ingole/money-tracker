@@ -30,4 +30,13 @@ const transactionSchema = new mongoose.Schema({
 { timestamps: true }
 )
 
+const globalSchema = new mongoose.Schema({
+    totalExpense:{
+        type: Number,
+    },
+    totalIncome:{
+        type: Number
+    }
+})
 export const Transaction = mongoose.models.Transaction || mongoose.model("Transaction", transactionSchema)
+export const Global = mongoose.models.Global || mongoose.model("Global", globalSchema)
