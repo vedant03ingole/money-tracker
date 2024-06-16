@@ -4,14 +4,14 @@ const Transaction =  () => {
 
   const handleSubmit = async (formData) => {
     "use server"
-    console.log(formData)
+    // console.log(formData)
   }
     return (
         <>
             <div>Transaction</div>
             <div className="text-black">
-                {/* <form action={addTransaction}> */}
-                <form action={handleSubmit}>
+                <form action={addTransaction}>
+                {/* <form action={handleSubmit}> */}
 
                     {/* Transaction type */}
                     <select name="transactionType" defaultValue="transactionType" required>

@@ -1,5 +1,4 @@
-import { fetchTransactions } from '../lib/data' 
-import { connectToDB } from "@/lib/utils";
+import { fetchTransactions } from '../lib/data'
 
 export default async function Home() {
 
