@@ -1,10 +1,12 @@
 import { Global, Transaction } from "./schema";
 import { connectToDB } from './utils'
 
-export const fetchTransactions = async () => {
+export const fetchTransactions = async (q) => {
+    console.log(q);
+    const regex =new RegExp(q, "i")
     try{
         connectToDB()
-        const transactions = await Transaction.find()
+        const transactions = await Transaction.find({category:{$regex:regex}})
         return transactions
         
     } catch(err){
