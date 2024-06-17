@@ -1,5 +1,6 @@
 import { deleteTransaction, updateGlobals } from '@/lib/actions';
 import { fetchGlobals, fetchTransactions } from '../lib/data'
+import Link from 'next/link';
 
 export default async function Home() {
 
@@ -9,7 +10,14 @@ export default async function Home() {
   return (
     <>
       <div className='flex flex-col justify-center items-center w-full'>
-        <h3 className='text-center'>All Transactions</h3>
+        <div className='flex justify-between min-w-[19.75rem] my-3'>
+          <div className='font-bold text-lg'>Latest Transactions</div>
+          <div>
+          <Link href="/transaction">
+            <button  className='py-1 rounded-md cursor-pointer'>Add Transaction</button>
+          </Link>
+          </div>
+        </div>
         {transactions && transactions.map((transaction) => (
           <div key={transaction.id} className='min-w-[19.75rem] max-w-full rounded-4xs [background:linear-gradient(93.31deg,_#2a3485,_#191e47)] flex flex-row items-center justify-between py-[1rem] px-[0.687rem] my-2 mx-2 box-border text-left text-whitesmoke font-inter'>
             <div className='self-stretch overflow-hidden flex flex-col items-start justify-center gap-[0.75rem]'>
@@ -28,6 +36,12 @@ export default async function Home() {
             </form> */}
           </div>
         ))}
+
+        <div>
+          <Link href='/alltransactions'>
+            <button className='py-1 rounded-md cursor-pointer'>All Transactions</button>
+          </Link>
+        </div>
 
         {globals && globals.map((global) => (
           <div key={global.id}>
