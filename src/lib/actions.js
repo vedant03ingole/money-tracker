@@ -49,8 +49,7 @@ export  const updateGlobals = async (formData) => {
     try {
         connectToDB()
         const updateFields = { totalIncome, totalExpense }
-        Object.keys(updateFields).forEach((key) => updateFields[key] === "" || undefined) && delete updateFields[key]
-
+        Object.keys(updateFields).forEach(key => (updateFields[key] === "" || undefined) && delete updateFields[key])
         await Global.findByIdAndUpdate(id, updateFields)
 
     } catch (error) {
