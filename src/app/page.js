@@ -2,7 +2,7 @@ import { fetchGlobals, fetchTransactions } from '../lib/data'
 
 export default async function Home() {
 
-  const transactions = await fetchTransactions()
+  const { transactions } = await fetchTransactions()
   const globals = await fetchGlobals()
   console.log(globals)
   
