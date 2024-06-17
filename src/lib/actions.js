@@ -1,13 +1,24 @@
+import { fetchGlobals } from "./data"
 import { Global, Transaction } from "./schema"
 import { connectToDB } from "./utils"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
 // Add transaction
-export  const addTransaction = async (formData) => {
+export const addTransaction = async (formData) => {
     "use server"
     const { username, transactionType, category, transactionAmount, paymentMethod, transactionDate, description } = Object.fromEntries(formData)
-    // console.log("Hello", username, "your transaction type is", category)
+
+    const globals = await fetchGlobals()
+    globals && globals.map((global) => {
+        if (transactionType === "income") {
+            const latestIncome = global.totalIncome + parseInt(transactionAmount)
+            updateIncome(global.id, latestIncome)
+        } else {
+            const latestExpense = global.totalExpense + parseInt(transactionAmount)
+            updateExpense(global.id, latestExpense)
+        }
+    })
 
     try {
         connectToDB()
@@ -24,7 +35,7 @@ export  const addTransaction = async (formData) => {
 }
 
 // delete the transaction
-export  const deleteTransaction = async (formData) => {
+export const deleteTransaction = async (formData) => {
     "use server"
     const { id } = Object.fromEntries(formData)
 
@@ -42,7 +53,7 @@ export  const deleteTransaction = async (formData) => {
 }
 
 // Update the Globals
-export  const updateGlobals = async (formData) => {
+export const updateGlobals = async (formData) => {
     "use server"
     const { id, totalIncome, totalExpense } = Object.fromEntries(formData)
 
@@ -59,4 +70,28 @@ export  const updateGlobals = async (formData) => {
 
     revalidatePath("/")
     redirect("/")
+}
+
+// Update Total Expense
+export const updateExpense = async (id, latestExpense) => {
+    "use server"
+    try {
+        connectToDB()
+        await Global.findByIdAndUpdate(id, { totalExpense: latestExpense })
+    } catch (error) {
+        console.log(error)
+        throw new Error("Failed to update expense")
+    }
+}
+
+// Update Total Income
+export const updateIncome = async (id, latestIncome) => {
+    "use server"
+    try {
+        connectToDB()
+        await Global.findByIdAndUpdate(id, { totalIncome: latestIncome })
+    } catch (error) {
+        console.log(error)
+        throw new Error("Failed to update income")
+    }
 }

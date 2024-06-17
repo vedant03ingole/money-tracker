@@ -5,7 +5,6 @@ export default async function Home() {
 
   const { transactions } = await fetchTransactions()
   const globals = await fetchGlobals()
-  // console.log(globals)
 
   return (
     <>
@@ -25,17 +24,15 @@ export default async function Home() {
         <br />
 
         {globals && globals.map((global) => (
-          <div key={global.div}>
+          <div key={global.id}>
             <p>Total Income{global.totalIncome}</p>
             <p>Total Expense{global.totalExpense}</p>
 
             <h3>Update globals</h3>
             <form action={updateGlobals}>
               <input type="hidden" name="id" value={global.id} />
-              <div>
                 <input type="number" name="totalIncome" className='bg-black text-white'/>
                 <input type="number" name="totalExpense" className='bg-black text-white mx-5' />
-              </div>
               <button type='submit'>Update</button>
             </form>
           </div>

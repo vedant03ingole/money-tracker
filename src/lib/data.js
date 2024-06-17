@@ -5,7 +5,7 @@ export const fetchTransactions = async (q, page) => {
     console.log(q);
     const regex =new RegExp(q, "i")
 
-    const ITEMS_PER_PAGE = 2
+    const ITEMS_PER_PAGE = 6
 
     try{
         connectToDB()

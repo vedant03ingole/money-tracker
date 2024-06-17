@@ -1,11 +1,10 @@
 import { addTransaction } from '@/lib/actions'
 
-const Transaction =  () => {
+const Transaction = () => {
 
-  const handleSubmit = async (formData) => {
-    "use server"
-    // console.log(formData)
-  }
+//   const handleSubmit = async (formData) => {
+//     "use server"
+//   }
     return (
         <>
             <div>Transaction</div>
@@ -45,7 +44,7 @@ const Transaction =  () => {
                     <input type="date" name="transactionDate" required />
 
                     {/* Description */}
-                    <textarea name="description" >Description</textarea>
+                    <textarea name="description" defaultValue="Description"></textarea>
 
 
                     <button className="text-white" type="submit">Send</button>
