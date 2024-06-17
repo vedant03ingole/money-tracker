@@ -1,13 +1,18 @@
 import { Global, Transaction } from "./schema";
 import { connectToDB } from './utils'
 
-export const fetchTransactions = async (q) => {
+export const fetchTransactions = async (q, page) => {
     console.log(q);
     const regex =new RegExp(q, "i")
+
+    const ITEMS_PER_PAGE = 2
+
     try{
         connectToDB()
-        const transactions = await Transaction.find({category:{$regex:regex}})
-        return transactions
+        const count = await Transaction.find({category:{$regex:regex}}).count()
+        const transactions = await Transaction.find({category:{$regex:regex}}).limit(ITEMS_PER_PAGE).skip(ITEMS_PER_PAGE*(page-1))
+        // const transactions = await Transaction.find({category:{$regex:regex}})
+        return { count, transactions }
         
     } catch(err){
         console.log(err)

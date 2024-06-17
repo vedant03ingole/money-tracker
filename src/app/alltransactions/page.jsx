@@ -1,15 +1,19 @@
 import { fetchTransactions } from '@/lib/data'
 import Search from './search'
+import Pagination from './pagination'
 
 const AllTransactions = async ({searchParams}) => {
 
     const q = searchParams?.q || ""
-    const transactions = await fetchTransactions(q) 
+    const page = searchParams?.page || 1
+    const { count, transactions } = await fetchTransactions(q, page) 
 
-    // console.log("filtered transactions",  {transactions})
+    console.log(transactions)
+
+    console.log("filtered transactions",  {transactions})
     return (
         <>
-            <div className=''>AllTransactions</div>
+            <div >AllTransactions</div>
             <Search />
 
             {transactions && transactions.map((transaction) => (
@@ -18,6 +22,8 @@ const AllTransactions = async ({searchParams}) => {
                     <h5>{transaction.transactionType}</h5>
                 </div>
             )) }
+
+            <Pagination count={count} />
         </>
     )
 }
