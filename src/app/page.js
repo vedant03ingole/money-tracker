@@ -1,3 +1,4 @@
+import { deleteTransaction, updateGlobals } from '@/lib/actions';
 import { fetchGlobals, fetchTransactions } from '../lib/data'
 
 export default async function Home() {
@@ -5,7 +6,7 @@ export default async function Home() {
   const { transactions } = await fetchTransactions()
   const globals = await fetchGlobals()
   console.log(globals)
-  
+
   return (
     <>
       <div>Hello world</div>
@@ -15,6 +16,10 @@ export default async function Home() {
           <div key={transaction.id}>
             <h5>{transaction.category}</h5>
             <h5>{transaction.id}</h5>
+            <form action={deleteTransaction}>
+              <input type="hidden" name="id" value={transaction.id} />
+              <button>Delete</button>
+            </form>
           </div>
         ))}
         <br />
@@ -23,6 +28,16 @@ export default async function Home() {
           <div key={global.div}>
             <p>Total Expense{global.totalExpense}</p>
             <p>Total Income{global.totalIncome}</p>
+
+            <h3>Update globals</h3>
+            <form action={updateGlobals}>
+              <input type="hidden" name="id" value={global.id} />
+              <div>
+                <input type="number" name="totalExpense" className='bg-black text-white mx-5' />
+                <input type="number" name="totalIncome" className='bg-black text-white'/>
+              </div>
+              <button type='submit'>Update</button>
+            </form>
           </div>
         ))}
       </div>
