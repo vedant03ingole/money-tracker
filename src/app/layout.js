@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
   <>
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} [background:radial-gradient(50%_50%_at_50%_50%,_#084675,_#01090f)] text-whitesmoke `}>{children}</body>
     </html>
   </>
   );

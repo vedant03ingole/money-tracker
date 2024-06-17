@@ -17,7 +17,7 @@ const AllTransactions = async ({searchParams}) => {
             <Search />
 
             {transactions && transactions.map((transaction) => (
-                <div key={transaction.id}>
+                <div key={transaction.id} className=''>
                     <h3>{transaction.category}</h3>
                     <h5>{transaction.transactionType}</h5>
                 </div>

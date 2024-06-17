@@ -15,19 +15,19 @@ const Transaction = () => {
                     {/* Transaction type */}
                     <select name="transactionType" defaultValue="transactionType" required>
                         <option value="transactionType" disabled hidden>Transaction type</option>
-                        <option value="income">Income</option>
-                        <option value="expense">Expense</option>
-                        <option value="transfer">Transfer</option>
+                        <option value="Income">Income</option>
+                        <option value="Expense">Expense</option>
+                        <option value="Transfer">Transfer</option>
                     </select>
 
                     {/* Category */}
                     <select name="category" defaultValue="category" required>
                         <option value="category" disabled hidden>Transaction Category</option>
-                        <option value="rent">Rent</option>
-                        <option value="mess">Mess</option>
-                        <option value="petrol">Petrol</option>
-                        <option value="food">Food</option>
-                        <option value="other">Other expenses</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Mess">Mess</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="Food">Food</option>
+                        <option value="Other">Other expenses</option>
                     </select>
 
                     {/* Transaction Amount */}
@@ -36,8 +36,8 @@ const Transaction = () => {
                     {/* Patment Method */}
                     <select name="paymentMethod" defaultValue="paymentMethod">
                         <option value="paymentMethod" disabled hidden>Payment method</option>
-                        <option value="online">Online</option>
-                        <option value="cash">Cash</option>
+                        <option value="Online">Online</option>
+                        <option value="Cash">Cash</option>
                     </select>
 
                     {/* transaction date */}

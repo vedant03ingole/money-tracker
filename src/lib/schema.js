@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 const transactionSchema = new mongoose.Schema({
     transactionType: {
         type: String,
-        enum: ["income", "expense", "transfer"],
+        enum: ["Income", "Expense", "Transfer"],
         required: true
     },
     category:{
         type: String,
-        enum:['rent', 'mess', 'petrol', 'food', 'other']
+        enum:['Rent', 'Mess', 'Petrol', 'Food', 'Other']
     },
     transactionAmount:{
         type: Number,
@@ -16,7 +16,7 @@ const transactionSchema = new mongoose.Schema({
     },
     paymentMethod:{
         type: String,
-        enum:["online", "cash"],
+        enum:["Online", "Cash"],
         required: true
     },
     transactionDate: {

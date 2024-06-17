@@ -6,8 +6,9 @@ import { redirect } from "next/navigation"
 
 // Add transaction
 export const addTransaction = async (formData) => {
+
     "use server"
-    const { username, transactionType, category, transactionAmount, paymentMethod, transactionDate, description } = Object.fromEntries(formData)
+    const { transactionType, category, transactionAmount, paymentMethod, transactionDate, description } = Object.fromEntries(formData)
 
     const globals = await fetchGlobals()
     globals && globals.map((global) => {
@@ -22,7 +23,7 @@ export const addTransaction = async (formData) => {
 
     try {
         connectToDB()
-        const newTransaction = new Transaction({ username, transactionType, category, transactionAmount, paymentMethod, transactionDate, description })
+        const newTransaction = new Transaction({ transactionType, category, transactionAmount, paymentMethod, transactionDate, description })
         await newTransaction.save()
 
     } catch (error) {
@@ -71,6 +72,7 @@ export const updateGlobals = async (formData) => {
     revalidatePath("/")
     redirect("/")
 }
+
 
 // Update Total Expense
 export const updateExpense = async (id, latestExpense) => {

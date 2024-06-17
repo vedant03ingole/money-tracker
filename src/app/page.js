@@ -8,20 +8,26 @@ export default async function Home() {
 
   return (
     <>
-      <div>Hello world</div>
-      <div>
-        <h1>All Transactions</h1>
+      <div className='flex flex-col justify-center items-center w-full'>
+        <h3 className='text-center'>All Transactions</h3>
         {transactions && transactions.map((transaction) => (
-          <div key={transaction.id}>
-            <h5>{transaction.category}</h5>
-            <h5>{transaction.id}</h5>
-            <form action={deleteTransaction}>
+          <div key={transaction.id} className='min-w-[19.75rem] max-w-full rounded-4xs [background:linear-gradient(93.31deg,_#2a3485,_#191e47)] flex flex-row items-center justify-between py-[1rem] px-[0.687rem] my-2 mx-2 box-border text-left text-whitesmoke font-inter'>
+            <div className='self-stretch overflow-hidden flex flex-col items-start justify-center gap-[0.75rem]'>
+              <div className='relative font-semibold text-[16px]'>{transaction.category}</div>
+              <div className="text-xs">{transaction.paymentMethod}</div>
+            </div>
+            <div className="overflow-hidden flex flex-col items-end justify-center gap-[0.75rem]">
+              <div className={`${transaction.transactionType === "Income" ? 'text-green-800' : 'text-red-700'} text-[16px] font-bold`}>{transaction.transactionAmount}</div>
+              <div className="text-xs">{transaction.transactionDate.toString().slice(4, 16)}</div>
+            </div>
+
+
+            {/* <form action={deleteTransaction}>
               <input type="hidden" name="id" value={transaction.id} />
               <button>Delete</button>
-            </form>
+            </form> */}
           </div>
         ))}
-        <br />
 
         {globals && globals.map((global) => (
           <div key={global.id}>
@@ -31,8 +37,8 @@ export default async function Home() {
             <h3>Update globals</h3>
             <form action={updateGlobals}>
               <input type="hidden" name="id" value={global.id} />
-                <input type="number" name="totalIncome" className='bg-black text-white'/>
-                <input type="number" name="totalExpense" className='bg-black text-white mx-5' />
+              <input type="number" name="totalIncome" className='bg-black text-white' />
+              <input type="number" name="totalExpense" className='bg-black text-white mx-5' />
               <button type='submit'>Update</button>
             </form>
           </div>
