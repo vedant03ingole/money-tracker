@@ -1,6 +1,8 @@
 'use client'
+
 import Link from 'next/link'
 import React, { useState } from 'react'
+import {MenuToggle} from './MenuToggle'
 
 const Nabvar = () => {
 
@@ -11,16 +13,12 @@ const Nabvar = () => {
     return (
         <>
             <div>
-                <div>NavbarTest</div>
-                <button className='' onClick={toggleMenu}>
-                    Change
-                </button>
-                {!isOpen ? "h1" : "h2"}
                 <h3>
                     <Link href="/">
                         Home
                     </Link>
                 </h3>
+                <MenuToggle toggleMenu={toggleMenu} isOpen={isOpen} />
             </div>
         </>
     )

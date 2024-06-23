@@ -12,7 +12,7 @@ export const addTransaction = async (formData) => {
 
     const globals = await fetchGlobals()
     globals && globals.map((global) => {
-        if (transactionType === "income") {
+        if (transactionType === "Income") {
             const latestIncome = global.totalIncome + parseInt(transactionAmount)
             updateIncome(global.id, latestIncome)
         } else {
