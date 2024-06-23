@@ -1,6 +1,7 @@
 import { deleteTransaction, updateGlobals } from '@/lib/actions';
 import { fetchGlobals, fetchTransactions } from '../lib/data'
 import Link from 'next/link';
+import TransactionCard from '@/components/TransactionCard';
 
 export default async function Home() {
 
@@ -13,12 +14,13 @@ export default async function Home() {
         <div className='flex justify-between min-w-[19.75rem] my-3'>
           <div className='font-bold text-lg'>Latest Transactions</div>
           <div>
-          <Link href="/transaction">
-            <button  className='py-1 rounded-md cursor-pointer'>Add Transaction</button>
-          </Link>
+            <Link href="/transaction">
+              <button className='py-1 rounded-md cursor-pointer'>Add Transaction</button>
+            </Link>
           </div>
         </div>
-        {transactions && transactions.map((transaction) => (
+        <TransactionCard transactions={transactions} />
+        {/* {transactions && transactions.map((transaction) => (
           <div key={transaction.id} className='min-w-[19.75rem] max-w-full rounded-4xs [background:linear-gradient(93.31deg,_#2a3485,_#191e47)] flex flex-row items-center justify-between py-[1rem] px-[0.687rem] my-2 mx-2 box-border text-left text-whitesmoke font-inter'>
             <div className='self-stretch overflow-hidden flex flex-col items-start justify-center gap-[0.75rem]'>
               <div className='relative font-semibold text-[16px]'>{transaction.category}</div>
@@ -30,12 +32,12 @@ export default async function Home() {
             </div>
 
 
-            {/* <form action={deleteTransaction}>
+            <form action={deleteTransaction}>
               <input type="hidden" name="id" value={transaction.id} />
               <button>Delete</button>
-            </form> */}
+            </form>
           </div>
-        ))}
+        ))} */}
 
         <div>
           <Link href='/alltransactions'>
@@ -43,7 +45,7 @@ export default async function Home() {
           </Link>
         </div>
 
-        {globals && globals.map((global) => (
+        {/* {globals && globals.map((global) => (
           <div key={global.id}>
             <p>Total Income{global.totalIncome}</p>
             <p>Total Expense{global.totalExpense}</p>
@@ -56,7 +58,7 @@ export default async function Home() {
               <button type='submit'>Update</button>
             </form>
           </div>
-        ))}
+        ))} */}
       </div>
     </>
   );
