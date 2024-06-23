@@ -1,8 +1,9 @@
 'use client'
 
+import Link from 'next/link'
 import React, { useState } from 'react'
 
-const Navbar = () => {
+const NavbarTest = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const toggleMenu = () => {
@@ -10,13 +11,18 @@ const Navbar = () => {
     }
     return (
         <div>
-            <div>Navbar</div>
+            <div>NavbarTest</div>
             <button className='' onClick={toggleMenu}>
                 Change
             </button>
             { !isOpen ? "h1" : "h2"}
+            <h3>
+                <Link href="/">
+                    Home
+                </Link>
+            </h3>
         </div>
     )
 }
 
-export default Navbar
+export default NavbarTest

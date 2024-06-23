@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-
+import NavbarTest from "@/components/NavbarTest";
+import Navbar from "@/components/Navbar"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
     <>
       <html lang="en">
         <body className={`${inter.className} [background:radial-gradient(50%_50%_at_50%_50%,_#084675,_#01090f)] text-whitesmoke `}>
+        {/* <NavbarTest /> */}
         <Navbar />
           {children}
         </body>
