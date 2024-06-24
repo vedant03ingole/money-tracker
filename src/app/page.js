@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <>
       <div className='flex flex-col justify-center items-center w-full'>
-        <div className='flex justify-between min-w-[19.75rem] my-3'>
+        <div className='flex justify-between min-w-[19.75rem]'>
           <div className='font-bold text-lg'>Latest Transactions</div>
           <div>
             <Link href="/transaction">

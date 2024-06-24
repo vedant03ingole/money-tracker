@@ -28,7 +28,7 @@ const transition = { duration: 0.3 }
 export function MenuToggle({ toggleMenu, isOpen }) {
   return (
     <button onClick={toggleMenu} className="cursor-pointer transition-all hover:scale-110 bg-transparent">
-      <svg style={{ top:"0px", right:"0px",width:"40px", height:"40px"}} width="23" height="50" viewBox="0 0 23 23">
+      <svg style={{ top:"0px", right:"0px",width:"30px", height:"30px"}} width="23" height="50" viewBox="0 0 23 23">
         <Path
           animate={isOpen ? "open" : "closed"}
           initial={false}

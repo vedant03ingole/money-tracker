@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React, { useState } from 'react'
-import {MenuToggle} from './MenuToggle'
+import { MenuToggle } from './MenuToggle'
 
 const Nabvar = () => {
 
@@ -11,16 +11,25 @@ const Nabvar = () => {
         setIsOpen(!isOpen)
     }
     return (
-        <>
-            <div>
-                <h3>
+        <div className='w-full'>
+            <div className='flex justify-between items-center my-2 '>
+                <div className=''>
+                <Link href="/transaction">
+                    <div className='grid  place-content-center p-1 font-bold bg-orange-700 rounded-full w-[20px] h-[20px] cursor-pointer'>
+                        +
+                    </div>
+                </Link>
+                </div>
+                <div className=''>
                     <Link href="/">
-                        Home
+                        MONEYTRACKER
                     </Link>
-                </h3>
-                <MenuToggle toggleMenu={toggleMenu} isOpen={isOpen} />
+                </div>
+                <div className=''>
+                    <MenuToggle toggleMenu={toggleMenu} isOpen={isOpen} />
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 
