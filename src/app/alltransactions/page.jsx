@@ -14,11 +14,11 @@ const AllTransactions = async ({ searchParams }) => {
     console.log("filtered transactions", { transactions })
     return (
         <>
-            <div >AllTransactions</div>
-            <div className=''>
+            <div className='flex flex-col justify-center items-center w-full'>
+            <div className='font-bold text-xl'>AllTransactions</div>
+            <div >
                 <Search />
             </div>
-            <div className='flex flex-col justify-center items-center w-full'>
                 <TransactionCard transactions={transactions} />
                 <Pagination count={count} />
             </div>

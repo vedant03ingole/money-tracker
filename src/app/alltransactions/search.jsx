@@ -25,8 +25,7 @@ const Search = ({ placeholder }) => {
 
     return (
         <>
-            <div>Search</div>
-            <input type="text" placeholder={placeholder} onChange={handelSearch} className="bg-black text-white p-5"/>
+            <input type="text" placeholder="Search transaction" onChange={handelSearch} className="bg-black text-white px-2 py-3 m-2 min-w-[19.75rem] rounded-4xs"/>
         </>
     )
 }
