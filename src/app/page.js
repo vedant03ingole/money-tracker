@@ -11,6 +11,15 @@ export default async function Home() {
   return (
     <>
       <div className='flex flex-col justify-center items-center w-full'>
+      <div className='p-2 my-2 font-bold text-red-500 text-[1.2rem]'>
+      {globals && globals.map((global) => (
+          <div key={global.id}>
+            {/* <p>Total Income{global.totalIncome}</p> */}
+            <p className=''>Total Expense {global.totalExpense}</p>
+
+          </div>
+        ))}
+      </div>
         <div className='flex justify-between min-w-[19.75rem]'>
           <div className='font-bold text-lg'>Latest Transactions</div>
           <div>
@@ -44,22 +53,15 @@ export default async function Home() {
             <button className='py-1 rounded-md cursor-pointer'>All Transactions</button>
           </Link>
         </div>
-
-        {/* {globals && globals.map((global) => (
-          <div key={global.id}>
-            <p>Total Income{global.totalIncome}</p>
-            <p>Total Expense{global.totalExpense}</p>
-
-            <h3>Update globals</h3>
-            <form action={updateGlobals}>
-              <input type="hidden" name="id" value={global.id} />
-              <input type="number" name="totalIncome" className='bg-black text-white' />
-              <input type="number" name="totalExpense" className='bg-black text-white mx-5' />
-              <button type='submit'>Update</button>
-            </form>
-          </div>
-        ))} */}
       </div>
     </>
   );
 }
+
+// <h3>Update globals</h3>
+// <form action={updateGlobals}>
+//   <input type="hidden" name="id" value={global.id} />
+//   <input type="number" name="totalIncome" className='bg-black text-white' />
+//   <input type="number" name="totalExpense" className='bg-black text-white mx-5' />
+//   <button type='submit'>Update</button>
+// </form>

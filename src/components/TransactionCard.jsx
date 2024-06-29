@@ -12,7 +12,7 @@ const TransactionCard = async ({ transactions }) => {
                             <div className="text-xs">{transaction.paymentMethod}</div>
                         </div>
                         <div className="overflow-hidden flex flex-col items-end justify-center gap-[0.75rem]">
-                            <div className={`${transaction.transactionType === "Income" ? 'text-green-800' : 'text-red-700'} text-[16px] font-bold`}>{transaction.transactionAmount}</div>
+                            <div className={`${transaction.transactionType === "Income" ? 'text-green-700' : `${transaction.transactionType === "Expense" ? "text-red-700" : "text-yellow-600" }`} text-[16px] font-bold`}>{transaction.transactionAmount}</div>
                             <div className="text-xs">{transaction.transactionDate.toString().slice(4, 16)}</div>
                         </div>
                     </div>
